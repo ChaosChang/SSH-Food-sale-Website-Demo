@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-9 20:37:56 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="example.Bean.Userinfo" table="userinfo" schema="dbo" catalog="xidianshopping">
+        <id name="userId" type="int">
+            <column name="userID" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="50" not-null="true" />
+        </property>
+        <property name="userpw" type="string">
+            <column name="userpw" length="20" not-null="true" />
+        </property>
+        <property name="userphone" type="string">
+            <column name="userphone" length="20" not-null="true" />
+        </property>
+        <property name="useradd" type="string">
+            <column name="useradd" length="200" not-null="true" />
+        </property>
+        <property name="adId" type="int">
+            <column name="adID" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

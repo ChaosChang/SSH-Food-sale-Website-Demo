@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-9 20:37:56 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="example.Bean.Eimage" table="eimage" schema="dbo" catalog="xidianshopping">
+        <id name="eid" type="int">
+            <column name="eID" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="eplace" type="string">
+            <column name="eplace" length="200" />
+        </property>
+        <property name="shopId" type="int">
+            <column name="shopID" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

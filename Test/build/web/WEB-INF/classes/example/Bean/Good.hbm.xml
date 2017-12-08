@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-9 20:37:56 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="example.Bean.Good" table="good" schema="dbo" catalog="xidianshopping">
+        <id name="goodId" type="int">
+            <column name="goodID" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="goodname" type="string">
+            <column name="goodname" length="50" not-null="true" />
+        </property>
+        <property name="goodimage" type="string">
+            <column name="goodimage" length="200" />
+        </property>
+        <property name="inprice" type="big_decimal">
+            <column name="inprice" scale="4" not-null="true" />
+        </property>
+        <property name="saleprice" type="big_decimal">
+            <column name="saleprice" scale="4" not-null="true" />
+        </property>
+        <property name="pdate" type="string">
+            <column name="pdate" length="10" />
+        </property>
+        <property name="adId" type="int">
+            <column name="adID" not-null="true" />
+        </property>
+        <property name="shopId" type="int">
+            <column name="shopID" not-null="true" />
+        </property>
+        <property name="salenumber" type="java.lang.Integer">
+            <column name="salenumber" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-9 20:37:56 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="example.Bean.Shop" table="shop" schema="dbo" catalog="xidianshopping">
+        <id name="shopId" type="int">
+            <column name="shopID" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="shopname" type="string">
+            <column name="shopname" length="50" not-null="true" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="50" not-null="true" />
+        </property>
+        <property name="shopdescribe" type="string">
+            <column name="shopdescribe" length="400" not-null="true" />
+        </property>
+        <property name="shopimage" type="string">
+            <column name="shopimage" length="200" />
+        </property>
+        <property name="adId" type="int">
+            <column name="adID" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

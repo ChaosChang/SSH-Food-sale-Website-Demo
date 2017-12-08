@@ -1,0 +1,167 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+    <package name="default" extends="struts-default">
+        <!--用户管理-->
+        <action name="loginAction" class="example.Login">
+            <result name="success">/example/views/adminindex.jsp</result>
+            <result name="error">/example/404error.jsp</result>
+        </action>
+        <action name="userloginAction" class="example.Login" method="userLogin">
+            <result name="success">/example/index.jsp</result>
+            <result name="error">/example/404error.jsp</result>
+        </action>
+        <action name="userLogout" class="example.Login" method="userLogout">
+            <result name="success">/example/index.jsp</result>
+        </action>
+        
+        <action name="userSearch*" class="example.Action.User" method="search">
+            <result name="success">/example/views/user/user.jsp</result>
+        </action>
+        
+        <action name="userAdd*" class="example.Action.User" method="userAdd">
+            <result name="success">/example/views/user/user.jsp</result>
+            <result name="error">/example/views/user/useradd.jsp</result>
+        </action>
+        
+        <action name="userRemove" class="example.Action.User" method="userRemove">
+            <result name="success">/example/views/user/user.jsp</result>
+        </action>
+        
+        <action name="userEdit" class="example.Action.User" method="userEdit">
+            <result name="success">/example/views/user/useredit.jsp</result>
+        </action>
+        
+        <action name="userUpdate" class="example.Action.User" method="userUpdate">
+            <result name="success">/example/views/user/user.jsp</result>
+        </action>
+        
+        <action name="userSignup" class="example.Action.User" method="userAdd">
+            <result name="success">/example/index.jsp</result>
+            <result name="error">/example/login.jsp</result>
+        </action>
+        <!--商店管理-->
+        <action name="shopSearch*" class="example.Action.ShopAct" method="search">
+            <result name="success">/example/views/Shop/shop.jsp</result>
+        </action>
+        <action name="shopAdd" class="example.Action.ShopAct" method="shopAdd">
+            <result name="success">/example/views/Shop/shop.jsp</result>
+        </action>
+        <action name="shopRemove" class="example.Action.ShopAct" method="shopRemove">
+            <result name="success">/example/views/Shop/shop.jsp</result>
+        </action>
+        <action name="shopEdit" class="example.Action.ShopAct" method="shopEdit">
+            <result name="success">/example/views/Shop/shopedit.jsp</result>
+        </action>
+        <action name="shopUpdate" class="example.Action.ShopAct" method="shopUpdate">
+            <result name="success">/example/views/Shop/shop.jsp</result>
+        </action>
+        <!--商品管理-->
+        <action name="goodSearch" class="example.Action.GoodAct" method="search">
+            <result name="success">/example/views/good/good.jsp</result>
+        </action>
+        <action name="goodAdd" class="example.Action.GoodAct" method="goodAdd">
+            <result name="success">/example/views/good/good.jsp</result>
+        </action>
+        <action name="goodRemove" class="example.Action.GoodAct" method="goodRemove">
+            <result name="success">/example/views/good/good.jsp</result>
+        </action>
+        <action name="goodEdit" class="example.Action.GoodAct" method="goodEdit">
+            <result name="success">/example/views/good/goodedit.jsp</result>
+        </action>
+        <action name="goodUpdate" class="example.Action.GoodAct" method="goodUpdate">
+            <result name="success">/example/views/good/good.jsp</result>
+        </action>
+        <!--环境图片管理-->
+        <action name="eimageSearch" class="example.Action.EimageAct" method="search">
+            <result name="success">/example/views/eimage/eimage.jsp</result>
+        </action>
+        <action name="eimageAdd" class="example.Action.EimageAct" method="eimageAdd">
+            <result name="success">/example/views/eimage/eimage.jsp</result>
+        </action>
+        <action name="eimageRemove" class="example.Action.EimageAct" method="eimageRemove">
+            <result name="success">/example/views/eimage/eimage.jsp</result>
+        </action>
+        <action name="eimageEdit" class="example.Action.EimageAct" method="eimageEdit">
+            <result name="success">/example/views/eimage/eimageedit.jsp</result>
+        </action>
+        <action name="eimageUpdate" class="example.Action.EimageAct" method="eimageUpdate">
+            <result name="success">/example/views/eimage/eimage.jsp</result>
+        </action>
+        <!--展示食物图片管理-->
+        <action name="gimageSearch" class="example.Action.GimageAct" method="search">
+            <result name="success">/example/views/gimage/gimage.jsp</result>
+        </action>
+        <action name="gimageAdd" class="example.Action.GimageAct" method="gimageAdd">
+            <result name="success">/example/views/gimage/gimage.jsp</result>
+        </action>
+        <action name="gimageRemove" class="example.Action.GimageAct" method="gimageRemove">
+            <result name="success">/example/views/gimage/gimage.jsp</result>
+        </action>
+        <action name="gimageEdit" class="example.Action.GimageAct" method="gimageEdit">
+            <result name="success">/example/views/gimage/gimageedit.jsp</result>
+        </action>
+        <action name="gimageUpdate" class="example.Action.GimageAct" method="gimageUpdate">
+            <result name="success">/example/views/gimage/gimage.jsp</result>
+        </action>
+        <!--厨师管理-->
+        <action name="chefSearch" class="example.Action.ChefAct" method="search">
+            <result name="success">/example/views/chef/chef.jsp</result>
+        </action>
+        <action name="chefAdd" class="example.Action.ChefAct" method="chefAdd">
+            <result name="success">/example/views/chef/chef.jsp</result>
+        </action>
+        <action name="chefRemove" class="example.Action.ChefAct" method="chefRemove">
+            <result name="success">/example/views/chef/chef.jsp</result>
+        </action>
+        <action name="chefEdit" class="example.Action.ChefAct" method="chefEdit">
+            <result name="success">/example/views/chef/chefedit.jsp</result>
+        </action>
+        <action name="chefUpdate" class="example.Action.ChefAct" method="chefUpdate">
+            <result name="success">/example/views/chef/chef.jsp</result>
+        </action>
+        
+        <!--前端管理-->
+        <action name="searchShop" class="example.Action.ShopAct" method="searchShop">
+            <result name="success">/example/about.jsp</result>
+        </action>
+        <action name="searchShop1" class="example.Action.ShopAct" method="searchShop">
+            <result name="success">/example/events.jsp</result>
+        </action>
+        <action name="searchShop2" class="example.Action.ShopAct" method="searchShop">
+            <result name="success">/example/gallery.jsp</result>
+        </action>
+        <action name="searchShop3" class="example.Action.ShopAct" method="searchShop">
+            <result name="success">/example/menu.jsp</result>
+        </action>
+        <!--购物车管理-->
+        <action name="cartSearch" class="example.Action.CartAct" method="search">
+            <result name="success">/example/checkout.jsp</result>
+            <result name="error">/example/404error.jsp</result>
+        </action>
+        <action name="cartAdd" class="example.Action.CartAct" method="cartAdd">
+            <result name="success">/example/menu.jsp</result>
+            <result name="error">/example/404error.jsp</result>
+        </action>
+        <action name="cartRemove" class="example.Action.CartAct" method="cartRemove">
+            <result name="success">/example/checkout.jsp</result>
+        </action>
+        <!--订单管理-->
+        <action name="orderSearch" class="example.Action.OrderAct" method="search">
+            <result name="success">/example/views/order/order.jsp</result>
+        </action>
+        <action name="orderAdd" class="example.Action.OrderAct" method="orderAdd">
+            <result name="success">/example/checkout.jsp</result>
+        </action>
+        <action name="orderRemove" class="example.Action.OrderAct" method="orderRemove">
+            <result name="success">/example/views/order/order.jsp</result>
+        </action>
+        <action name="orderDetail" class="example.Action.OrderAct" method="orderDetail">
+            <result name="success">/example/views/order/orderdetail.jsp</result>
+        </action>
+    </package>
+</struts>

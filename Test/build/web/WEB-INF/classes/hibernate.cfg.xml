@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:jtds:sqlserver://localhost:1433/xidianshopping</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">123456</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+    <mapping resource="example/Bean/Adminster.hbm.xml"/>
+    <mapping resource="example/Bean/Userinfo.hbm.xml"/>
+    <mapping resource="example/Bean/Shop.hbm.xml"/>
+    <mapping resource="example/Bean/Good.hbm.xml"/>
+    <mapping resource="example/Bean/Eimage.hbm.xml"/>
+    <mapping resource="example/Bean/Gimage.hbm.xml"/>
+    <mapping resource="example/Bean/Chef.hbm.xml"/>
+    <mapping resource="example/Bean/Orderinfo.hbm.xml"/>
+    <mapping resource="example/Bean/Cart.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

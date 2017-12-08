@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-9 20:37:56 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="example.Bean.Gimage" table="gimage" schema="dbo" catalog="xidianshopping">
+        <id name="gid" type="int">
+            <column name="gID" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="gplace" type="string">
+            <column name="gplace" length="200" />
+        </property>
+        <property name="shopId" type="int">
+            <column name="shopID" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

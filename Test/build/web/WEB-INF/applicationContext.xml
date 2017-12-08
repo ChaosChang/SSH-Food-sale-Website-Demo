@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <!--bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="/WEB-INF/jdbc.properties" />
+
+<bean id="dataSource"
+    class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+    p:driverClassName="${jdbc.driverClassName}"
+    p:url="${jdbc.url}"
+    p:username="${jdbc.username}"
+    p:password="${jdbc.password}" /-->
+
+    <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
+    <!--Service注册-->
+    <bean id="loginDao" class="example.Dao.LoginDaoImpl" />
+    <bean id="loginService" class="example.Service.LoginServiceImpl">
+        <property name="loginDao" ref="loginDao" />
+    </bean>
+    
+    <bean id="shopDao" class="example.Dao.ShopDaoImpl"/>
+    <bean id="shopService" class="example.Service.ShopServiceImpl">
+        <property name="shopDao" ref="shopDao"/>
+    </bean>
+    
+    <bean id="goodDao" class="example.Dao.GoodDaoImpl"/>
+    <bean id="goodService" class="example.Service.GoodServiceImpl">
+        <property name="goodDao" ref="goodDao"/>
+    </bean>
+    
+    <bean id="eimageDao" class="example.Dao.EimageDaoImpl"/>
+    <bean id="eimageService" class="example.Service.EimageServiceImpl">
+        <property name="eimageDao" ref="eimageDao"/>
+    </bean>
+    
+    <bean id="gimageDao" class="example.Dao.GimageDaoImpl"/>
+    <bean id="gimageService" class="example.Service.GimageServiceImpl">
+        <property name="gimageDao" ref="gimageDao"/>
+    </bean>
+    
+    <bean id="chefDao" class="example.Dao.ChefDaoImpl"/>
+    <bean id="chefService" class="example.Service.ChefServiceImpl">
+        <property name="chefDao" ref="chefDao"/>
+    </bean>
+    
+    <bean id="cartDao" class="example.Dao.CartDaoImpl"/>
+    <bean id="cartService" class="example.Service.CartServiceImpl">
+        <property name="cartDao" ref="cartDao"/>
+    </bean>
+    
+    <bean id="orderDao" class="example.Dao.OrderDaoImpl"/>
+    <bean id="orderService" class="example.Service.OrderServiceImpl">
+        <property name="orderDao" ref="orderDao"/>
+    </bean>
+        
+    <!--Action注册,管理员登录+用户一系列操作-->
+    <bean id="loginAction" class="example.Login"
+          scope="prototype">
+        <property name="ls" ref="loginService" /><!--ref和action中的set函数是对应的-->
+    </bean>
+        
+    <bean id="userloginAction" class="example.Login"
+          scope="prototype">
+        <property name="ls" ref="loginService" />
+    </bean>
+    
+    
+    <bean id="userSearch" class="example.Action.User"
+          scope="prototype">
+        <property name="ls" ref="loginService" />
+    </bean>
+    
+    <bean id="userAdd" class="example.Action.User"
+          scope="prototype">
+        <property name="ls" ref="loginService"/>
+    </bean>
+    
+    <bean id="userSignup" class="example.Action.User"
+          scope="prototype">
+        <property name="ls" ref="loginService"/>
+    </bean>
+    
+    <bean id="userRemove" class="example.Action.User"
+          scope="prototype">
+        <property name="ls" ref="loginService"/>
+    </bean>
+    
+    <bean id="userEdit" class="example.Action.User"
+          scope="prototype">
+    </bean>
+    
+    <bean id="userUpdate" class="example.Action.User"
+          scope="prototype">
+        <property name="ls" ref="loginService"/>
+    </bean>
+    <!--shop操作-->
+    <bean id="shopSearch" class="example.Action.ShopAct"
+          scope="prototype">
+        <property name="ss" ref="shopService"/>
+    </bean>
+    
+    <bean id="shopAdd" class="example.Action.ShopAct"
+          scope="prototype">
+        <property name="ss" ref="shopService"/>
+    </bean>
+    
+    <bean id="shopRemove" class="example.Action.ShopAct"
+          scope="prototype">
+        <property name="ss" ref="shopService"/>
+    </bean>
+    
+    <bean id="shopEdit" class="example.Action.ShopAct"
+          scope="prototype">
+    </bean>
+    
+    <bean id="shopUpdate" class="example.Action.ShopAct"
+          scope="prototype">
+        <property name="ss" ref="shopService"/>
+    </bean>
+    
+    <!--good操作-->
+    <bean id="goodSearch" class="example.Action.GoodAct"
+          scope="prototype">
+        <property name="gs" ref="goodService"/>
+    </bean>
+    <bean id="goodAdd" class="example.Action.GoodAct"
+          scope="prototype">
+        <property name="gs" ref="goodService"/>
+    </bean>
+    <bean id="goodRemove" class="example.Action.GoodAct"
+          scope="prototype">
+        <property name="gs" ref="goodService"/>
+    </bean>
+    <bean id="goodEdit" class="example.Action.GoodAct"
+          scope="prototype">
+    </bean>
+    <bean id="goodUpdate" class="example.Action.GoodAct"
+          scope="prototype">
+        <property name="gs" ref="goodService"/>
+    </bean>
+    
+    <!--环境图片操作-->
+    <bean id="eimageSearch" class="example.Action.EimageAct"
+          scope="prototype">
+        <property name="es" ref="eimageService"/>
+    </bean>
+    <bean id="eimageAdd" class="example.Action.EimageAct"
+          scope="prototype">
+        <property name="es" ref="eimageService"/>
+    </bean>
+    <bean id="eimageRemove" class="example.Action.EimageAct"
+          scope="prototype">
+        <property name="es" ref="eimageService"/>
+    </bean>
+    <bean id="eimageEdit" class="example.Action.EimageAct"
+          scope="prototype">
+    </bean>
+    <bean id="eimageUpdate" class="example.Action.EimageAct"
+          scope="prototype">
+        <property name="es" ref="eimageService"/>
+    </bean>
+    
+    <!--食物图片操作-->
+    <bean id="gimageSearch" class="example.Action.GimageAct"
+          scope="prototype">
+        <property name="gs" ref="gimageService"/>
+    </bean>
+    <bean id="gimageAdd" class="example.Action.GimageAct"
+          scope="prototype">
+        <property name="gs" ref="gimageService"/>
+    </bean>
+    <bean id="gimageRemove" class="example.Action.GimageAct"
+          scope="prototype">
+        <property name="gs" ref="gimageService"/>
+    </bean>
+    <bean id="gimageEdit" class="example.Action.GimageAct"
+          scope="prototype">
+    </bean>
+    <bean id="gimageUpdate" class="example.Action.GimageAct"
+          scope="prototype">
+        <property name="gs" ref="gimageService"/>
+    </bean>
+    
+    <!--厨师图片操作-->
+    <bean id="chefSearch" class="example.Action.ChefAct"
+          scope="prototype">
+        <property name="cs" ref="chefService"/>
+    </bean>
+    <bean id="chefAdd" class="example.Action.ChefAct"
+          scope="prototype">
+        <property name="cs" ref="chefService"/>
+    </bean>
+    <bean id="chefRemove" class="example.Action.ChefAct"
+          scope="prototype">
+        <property name="cs" ref="chefService"/>
+    </bean>
+    <bean id="chefEdit" class="example.Action.ChefAct"
+          scope="prototype">
+    </bean>
+    <bean id="chefUpdate" class="example.Action.ChefAct"
+          scope="prototype">
+        <property name="cs" ref="chefService"/>
+    </bean>
+    
+    <!--前端操作-->
+    <bean id="searchShop" class="example.Action.ShopAct"
+          scope="prototype">
+        <property name="ss" ref="shopService"/>
+    </bean>
+    <bean id="searchShop1" class="example.Action.ShopAct"
+          scope="prototype">
+        <property name="ss" ref="shopService"/>
+    </bean>
+    <bean id="searchShop2" class="example.Action.ShopAct"
+          scope="prototype">
+        <property name="ss" ref="shopService"/>
+    </bean>
+    <bean id="searchShop3" class="example.Action.ShopAct"
+          scope="prototype">
+        <property name="ss" ref="shopService"/>
+    </bean>
+    <!--购物车操作-->
+    <bean id="cartSearch" class="example.Action.CartAct"
+          scope="prototype">
+        <property name="ca" ref="cartService"/>
+    </bean>
+    <bean id="cartAdd" class="example.Action.CartAct"
+          scope="prototype">
+        <property name="ca" ref="cartService"/>
+    </bean>
+    <bean id="cartRemove" class="example.Action.CartAct"
+          scope="prototype">
+        <property name="ca" ref="cartService"/>
+    </bean>
+    <!--订单管理-->
+    <bean id="orderSearch" class="example.Action.OrderAct"
+          scope="prototype">
+        <property name="os" ref="orderService"/>
+    </bean>
+    <bean id="orderAdd" class="example.Action.OrderAct"
+          scope="prototype">
+        <property name="os" ref="orderService"/>
+    </bean>
+    <bean id="orderRemove" class="example.Action.OrderAct"
+          scope="prototype">
+        <property name="os" ref="orderService"/>
+    </bean>
+    
+    <bean id="orderDetail" class="example.Action.OrderAct"
+          scope="prototype">
+        <property name="ca" ref="orderService"/>
+    </bean>
+</beans>

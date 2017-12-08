@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-9 20:37:56 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="example.Bean.Cart" table="cart" schema="dbo" catalog="xidianshopping" optimistic-lock="version">
+        <id name="cartId" type="int">
+            <column name="cartID" />
+            <generator class="assigned" />
+        </id>
+        <property name="userId" type="int">
+            <column name="userID" not-null="true" />
+        </property>
+        <property name="number" type="int">
+            <column name="number" not-null="true" />
+        </property>
+        <property name="goodId" type="int">
+            <column name="goodID" not-null="true" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" length="200" />
+        </property>
+        <property name="money" type="big_decimal">
+            <column name="money" scale="4" />
+        </property>
+        <property name="orderId" type="java.lang.Integer">
+            <column name="orderID" />
+        </property>
+    </class>
+</hibernate-mapping>
